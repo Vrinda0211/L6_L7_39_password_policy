@@ -1,4 +1,7 @@
 def first_character_type(pw):
+    if not isinstance(pw, str) or not pw:
+        return None
+
     ch = pw[0]
     if ch.isdigit():
         return 'digit'
@@ -7,10 +10,16 @@ def first_character_type(pw):
     return 'symbol'
 
 def split_credentials(text):
-    user, password = text.split(':')
+    if not isinstance(text, str) or text.count(':') != 1:
+        return None
+
+    user, password = text.split(':', 1)
     return user.strip(), password.strip()
 
 def digit_ratio(pw):
+    if not isinstance(pw, str) or not pw:
+        return 0.0
+
     return sum(c.isdigit() for c in pw) / len(pw)
 
 def main():

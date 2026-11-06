@@ -1,6 +1,6 @@
 from hypothesis import given, strategies as st
 
-from password_policy import digit_ratio, first_character_type, split_credentials
+from processor import digit_ratio, first_character_type, split_credentials
 
 
 invalid_scalar_inputs = st.one_of(
